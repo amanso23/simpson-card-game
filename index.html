@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simpson Card Game</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <script>
+        /*todo lo que involucre cargar imagenes a la pagina se debera declarar aqui */
+        let cartasSimpson = ["./img/burns.PNG", "./img/fresuisus.PNG", "./img/gabbo.PNG", "./img/homer.PNG", "./img/krusty.PNG", "./img/mrspakle.PNG"];
+        cartasSimpson = cartasSimpson.concat(cartasSimpson) //duplicamos el array dado que son parejas
+
+        function resetarImagenes() { //da la vuelta a la imágenes que no han encontrado su pareja
+            cartas.forEach(carta => {
+                if (!carta.classList.contains("encontrada")) {
+                    carta.src = "./img/images.png";
+                }
+            });
+        }
+
+        function reiniciarCartas(){ //funcion que gira las cartas para poder volver a jugar
+            cartas.forEach(carta =>{
+                carta.src = "./img/images.png";
+            });
+        }
+
+        function cambiarAMordida(){
+            document.getElementById("rosquilla").src = "./img/rosquilla-mordida.png";
+        }
+
+    </script>
+     <div class="footer-derecho">
+        <p>&copy; 2023 The Simpsons.</p>
+    </div>
+    <audio src="./sonido/efecto.mp3" id="efecto-carta"></audio><audio src="./sonido/risa-nelson.mp3" id="risa-nelson"></audio>
+    </audio><audio src="./sonido/simpsons-intro.mp3" id="simpsons-intro" style="display: none;"></audio><audio src="./sonido/morder-rosquilla.mp3" id="morder-rosquilla"></audio>
+    <img class="logo" src="./img/titulo.png" alt="logo"><br><br>
+
+    <div id="cuadro-juego-completado">
+        <div class="mensaje-completado">COMPLETADO</div>
+        <hr>
+        <div id="numero-intentos"></div>
+        <hr>
+        <div id="tiempo-jugado"></div>
+        <hr>
+        <div id="puntuacion"></div>
+        <hr>
+        <img src="./img/rosquilla.png" alt="rosquilla" id="rosquilla">
+    </div><br>
+    <div id="mensaje-desarrollador">Desarrollado por <u>Adrián Manso</u>.</div>
+    
+    <div class="juego">
+        <table cellspacing="15">
+            <tr>
+                <td><img src="./img/images.png" class="carta" alt=""></td>
+                <td><img src="./img/images.png" class="carta" alt=""></td>
+                <td><img src="./img/images.png" class="carta" alt=""></td>
+                <td><img src="./img/images.png" class="carta" alt=""></td>
+            </tr>
+            <tr>
+                <td><img src="./img/images.png" class="carta" alt=""></td>
+                <td><img src="./img/images.png" class="carta" alt=""></td>
+                <td><img src="./img/images.png" class="carta" alt=""></td>
+                <td><img src="./img/images.png" class="carta" alt=""></td>
+            </tr>
+            <tr>
+                <td><img src="./img/images.png" class="carta" alt=""></td>
+                <td><img src="./img/images.png" class="carta" alt=""></td>
+                <td><img src="./img/images.png" class="carta" alt=""></td>
+                <td><img src="./img/images.png" class="carta" alt=""></td>
+            </tr>
+        </table><br><br>
+
+    </div><br><br>
+        
+    <img src="./img/rosquilla-mano.png" id="mano-rosquilla">
+    
+    <script src="./js/index.js"></script>
+</body>
+</html>
